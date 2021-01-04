@@ -17,10 +17,10 @@ export const FONT_SIZE_6 = scaleFont(6);
 
 // FONT STYLE
 export const FONT_REGULAR = {
-  fontFamily: FONT_FAMILY_REGULAR,
+  //fontFamily: FONT_FAMILY_REGULAR,
   fontWeight: FONT_WEIGHT_REGULAR,
 };
 export const FONT_BOLD = {
-  fontFamily: FONT_FAMILY_BOLD,
+  //fontFamily: FONT_FAMILY_BOLD,
   fontWeight: FONT_WEIGHT_BOLD,
 };

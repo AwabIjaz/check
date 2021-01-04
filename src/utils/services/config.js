@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import {API_BASE_URL} from '../Constants';
+const API_BASE_URL = ''; //api base url would go here
 
 axios.defaults.baseURL = API_BASE_URL;
 axios.defaults.headers.common.Accept = 'application/json';

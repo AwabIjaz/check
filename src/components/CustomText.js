@@ -4,15 +4,27 @@ import PropTypes from 'prop-types';
 
 import {Typography, Colors, Layout} from '../styles';
 
-const CustomText = ({text, type, bold, textWidth, style}) => (
+const CustomText = ({
+  text,
+  type,
+  bold,
+  center,
+  textWidth,
+  style,
+  chidren,
+  ...rest
+}) => (
   <Text
     style={[
       styles[type],
       bold && Typography.FONT_BOLD,
+      center && {textAlign: 'center'},
       textWidth && {width: Layout.scaleWidth(textWidth)},
       style,
-    ]}>
+    ]}
+    {...rest}>
     {text}
+    {chidren}
   </Text>
 );
 
