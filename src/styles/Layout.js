@@ -9,8 +9,8 @@ const SCREEN_HEIGHT =
     ? Dimensions.get('window').height
     : Dimensions.get('window').width;
 
-const BASE_WIDTH = 100;
-const BASE_HEIGHT = 100;
+const BASE_WIDTH = 375;
+const BASE_HEIGHT = 812;
 
 export const scaleWidth = (width) => width * (SCREEN_WIDTH / BASE_WIDTH);
 

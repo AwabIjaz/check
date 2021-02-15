@@ -4,20 +4,32 @@ import PropTypes from 'prop-types';
 
 import {Typography, Colors, Layout} from '../styles';
 
-const CustomText = ({text, type, bold, textWidth, style}) => (
+const CustomText = ({
+  text,
+  type,
+  bold,
+  center,
+  textWidth,
+  style,
+  chidren,
+  ...rest
+}) => (
   <Text
     style={[
       styles[type],
       bold && Typography.FONT_BOLD,
+      center && {textAlign: 'center'},
       textWidth && {width: Layout.scaleWidth(textWidth)},
       style,
-    ]}>
+    ]}
+    {...rest}>
     {text}
+    {chidren}
   </Text>
 );
 
 const textBase = {
-  fontSize: Typography.FONT_SIZE_10,
+  fontSize: Typography.FONT_SIZE_17,
   ...Typography.FONT_REGULAR,
   color: Colors.BLACK,
 };
@@ -31,15 +43,19 @@ const styles = StyleSheet.create({
   },
   primaryText: {
     ...textBase,
-    color: Colors.WHITE,
+    color: Colors.PRIMARY,
   },
   secondaryText: {
     ...textBase,
     color: Colors.SECONDARY,
   },
+  whiteText: {
+    ...textBase,
+    color: Colors.WHITE,
+  },
   errorText: {
     ...errorTextBase,
-    fontSize: Typography.FONT_SIZE_8,
+    fontSize: Typography.FONT_SIZE_12,
   },
 });
 
@@ -47,6 +63,7 @@ CustomText.propTypes = {
   text: PropTypes.string,
   type: PropTypes.string,
   bold: PropTypes.bool,
+  center: PropTypes.bool,
   textWidth: PropTypes.number,
 };
 

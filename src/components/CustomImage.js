@@ -4,7 +4,7 @@ import {Image, ImageBackground, StyleSheet} from 'react-native';
 
 import {Layout} from '../styles';
 
-const CustomImage = ({width, height, source, style, type, children}) =>
+const CustomImage = ({width, height, source, style, type, children, ...rest}) =>
   type !== 'backgroundImage' ? (
     <Image
       source={source}
@@ -13,9 +13,10 @@ const CustomImage = ({width, height, source, style, type, children}) =>
         styles[type],
         style,
       ]}
+      {...rest}
     />
   ) : (
-    <ImageBackground source={source} style={styles.backgroundImage}>
+    <ImageBackground source={source} style={styles.backgroundImage} {...rest}>
       {children}
     </ImageBackground>
   );

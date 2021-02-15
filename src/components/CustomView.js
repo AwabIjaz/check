@@ -13,13 +13,15 @@ const CustomView = ({
   marginBottom,
   marginLeft,
   children,
+  ...rest
 }) => (
   <View
     style={[
       Layout.margin(marginTop, marginRight, marginBottom, marginLeft),
       styles[type],
       style,
-    ]}>
+    ]}
+    {...rest}>
     {children}
   </View>
 );
@@ -58,12 +60,15 @@ const styles = StyleSheet.create({
   middleSelfContainer: {
     alignSelf: 'center',
   },
+  horizontal: {
+    ...horizontalBase,
+    ...middleX,
+  },
   horizontalSpace: {
     ...horizontalBase,
     ...middleX,
     justifyContent: 'space-between',
     alignSelf: 'center',
-    width: Layout.scaleWidth(90),
   },
 });
 

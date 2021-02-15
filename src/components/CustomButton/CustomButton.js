@@ -16,22 +16,19 @@ const CustomButton = ({
   marginRight,
   marginBottom,
   marginLeft,
-  onPress,
-  disabled,
-  noShadow,
+  shadow,
   style,
   children,
+  ...rest
 }) => (
   <TouchableOpacity
     style={[
       styles[type],
       Layout.margin(marginTop, marginRight, marginBottom, marginLeft),
-      !noShadow && Layout.boxShadow('#00000044'),
-      disabled,
+      shadow && Layout.boxShadow('#00000044'),
       style,
     ]}
-    onPress={onPress}
-    disabled={disabled}>
+    {...rest}>
     {text && <CustomText text={text} type={textType} />}
     {children}
   </TouchableOpacity>
@@ -45,16 +42,13 @@ CustomButton.propTypes = {
   marginRight: PropTypes.number,
   marginBottom: PropTypes.number,
   marginLeft: PropTypes.number,
-  onPress: PropTypes.func,
-  disabled: PropTypes.bool,
-  noShadow: PropTypes.bool,
+  shadow: PropTypes.bool,
 };
 CustomButton.defaultProps = {
   marginTop: NA,
   marginRight: NA,
   marginBottom: NA,
   marginLeft: NA,
-  disabled: false,
 };
 
 export default CustomButton;

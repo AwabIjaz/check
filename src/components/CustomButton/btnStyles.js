@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {Colors, Layout, Spacing} from '../../styles';
+import {Colors, Layout} from '../../styles';
 
 const base = {
   alignItems: 'center',
@@ -7,8 +7,8 @@ const base = {
 };
 const main = {
   ...base,
-  width: Layout.scaleWidth(90),
-  height: Layout.scaleHeight(8),
+  width: Layout.scaleWidth(343),
+  height: Layout.scaleHeight(48),
   borderTopRightRadius: 8,
   borderBottomLeftRadius: 8,
 };
