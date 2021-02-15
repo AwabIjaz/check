@@ -3,13 +3,19 @@ import PropTypes from 'prop-types';
 import {Image, ImageBackground, StyleSheet} from 'react-native';
 
 import {Layout} from '../styles';
+import {BACKGROUND_IMAGE} from '../utils/constants';
 
 const CustomImage = ({width, height, source, style, type, children, ...rest}) =>
-  type !== 'backgroundImage' ? (
+  type !== BACKGROUND_IMAGE ? (
     <Image
       source={source}
       style={[
-        {width: Layout.scaleWidth(width), height: Layout.scaleWidth(height)},
+        {
+          width: width && Layout.scaleWidth(width),
+          height: height
+            ? Layout.scaleHeight(height)
+            : width && Layout.scaleWidth(width),
+        },
         styles[type],
         style,
       ]}
@@ -24,6 +30,9 @@ const CustomImage = ({width, height, source, style, type, children, ...rest}) =>
 const styles = StyleSheet.create({
   basic: {
     resizeMode: 'contain',
+  },
+  cover: {
+    resizeMode: 'cover',
   },
   backgroundImage: {
     flex: 1,

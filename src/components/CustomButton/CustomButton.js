@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import CustomText from '../CustomText';
 
 import styles from './btnStyles';
-import {Layout} from '../../styles';
+import {Layout, Colors} from '../../styles';
 import {NA} from '../../styles/Spacing';
 
 const CustomButton = ({
@@ -18,16 +18,20 @@ const CustomButton = ({
   marginLeft,
   shadow,
   style,
+  inactive,
   children,
   ...rest
 }) => (
   <TouchableOpacity
+    delayPressIn={0}
     style={[
       styles[type],
       Layout.margin(marginTop, marginRight, marginBottom, marginLeft),
-      shadow && Layout.boxShadow('#00000044'),
+      shadow && Layout.boxShadow(Colors.SHADOW),
+      inactive && {opacity: 0.5},
       style,
     ]}
+    disabled={inactive}
     {...rest}>
     {text && <CustomText text={text} type={textType} />}
     {children}
@@ -43,6 +47,7 @@ CustomButton.propTypes = {
   marginBottom: PropTypes.number,
   marginLeft: PropTypes.number,
   shadow: PropTypes.bool,
+  inactive: PropTypes.bool,
 };
 CustomButton.defaultProps = {
   marginTop: NA,

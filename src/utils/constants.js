@@ -1,1 +1,1 @@
-export const CONSTANT_1 = 'xyz';
+export const BACKGROUND_IMAGE = 'backgroundImage';
