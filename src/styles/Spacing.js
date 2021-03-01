@@ -6,6 +6,8 @@ export const H_8 = scaleWidth(8);
 export const H_4 = scaleWidth(4);
 export const H_2 = scaleWidth(2);
 
+export const V_70 = scaleHeight(70);
+export const V_40 = scaleHeight(40);
 export const V_32 = scaleHeight(32);
 export const V_16 = scaleHeight(16);
 export const V_8 = scaleHeight(8);

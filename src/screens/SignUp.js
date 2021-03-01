@@ -6,18 +6,17 @@ import CustomText from '../components/CustomText';
 import {
   ScrollableInputsView,
   DisplayInputs,
-  TopBuffer,
 } from '../components/SharedComponents';
-import AppLogo from '../components/AppLogo';
 
 import {V_16, V_32, V_70} from '../styles/Spacing';
 import {AUTH_INPUTS} from '../utils/constants';
 import {fieldsFilled} from '../utils/helperFunctions';
 
-function Login({navigation}) {
+function SignUp({navigation}) {
   const [state, setState] = useState({
     email: '',
     password: '',
+    repeatPassword: '',
   });
   const [focusLabel, setFocusLabel] = useState('');
   const inputRef = useRef();
@@ -26,32 +25,23 @@ function Login({navigation}) {
     setState((prevState) => ({...prevState, [name]: value}));
   };
 
-  const getInputs = () => {
-    const inputArray = JSON.parse(JSON.stringify(AUTH_INPUTS));
-    return (
-      <DisplayInputs
-        inputArray={inputArray.slice(0, 2)}
-        state={state}
-        handleChange={handleChange}
-        inputRef={inputRef}
-        focusLabel={focusLabel}
-        setFocusLabel={setFocusLabel}
-      />
-    );
-  };
-
   return (
     <>
-      <TopBuffer />
       <ScrollableInputsView>
-        <AppLogo />
         <CustomView marginTop={V_32} marginBottom={V_70}>
-          <CustomText text="Log In" type="titleSmall" />
+          <CustomText text="Sign Up" type="titleSmall" />
         </CustomView>
-        {getInputs()}
+        <DisplayInputs
+          inputArray={AUTH_INPUTS}
+          state={state}
+          handleChange={handleChange}
+          inputRef={inputRef}
+          focusLabel={focusLabel}
+          setFocusLabel={setFocusLabel}
+        />
         <CustomButton
           type="primaryBtn"
-          text="Login"
+          text="Continue"
           textType="whiteText"
           marginTop={V_32}
           marginBottom={V_32}
@@ -59,9 +49,9 @@ function Login({navigation}) {
           inactive={!fieldsFilled(state)}
         />
         <CustomButton
-          text="Don't Have an Account? - Sign Up"
+          text="Already Have an Account? - Log In"
           textType="primaryText"
-          onPress={() => navigation.navigate('SignUp')}
+          onPress={() => navigation.goBack()}
           marginBottom={V_16}
         />
       </ScrollableInputsView>
@@ -69,4 +59,4 @@ function Login({navigation}) {
   );
 }
 
-export default Login;
+export default SignUp;

@@ -12,13 +12,21 @@ const CustomView = ({
   marginRight,
   marginBottom,
   marginLeft,
+  rightItems,
+  width,
+  height,
+  noFlex,
   children,
   ...rest
 }) => (
   <View
     style={[
-      Layout.margin(marginTop, marginRight, marginBottom, marginLeft),
       styles[type],
+      Layout.margin(marginTop, marginRight, marginBottom, marginLeft),
+      width && {width: Layout.scaleWidth(width)},
+      height && {height: Layout.scaleWidth(height)},
+      rightItems && {alignItems: 'flex-end'},
+      noFlex && {flex: 0},
       style,
     ]}
     {...rest}>
@@ -78,6 +86,10 @@ CustomView.propTypes = {
   marginRight: PropTypes.number,
   marginBottom: PropTypes.number,
   marginLeft: PropTypes.number,
+  rightItems: PropTypes.bool,
+  width: PropTypes.number,
+  height: PropTypes.number,
+  noFlex: PropTypes.bool,
 };
 CustomView.defaultProps = {
   marginTop: NA,

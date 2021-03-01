@@ -56,6 +56,13 @@ const styles = StyleSheet.create({
   errorText: {
     ...errorTextBase,
     fontSize: Typography.FONT_SIZE_12,
+  title: {
+    ...textBase,
+    fontSize: Typography.FONT_SIZE_38,
+  },
+  titleSmall: {
+    ...textBase,
+    fontSize: Typography.FONT_SIZE_26,
   },
 });
 
@@ -65,6 +72,9 @@ CustomText.propTypes = {
   bold: PropTypes.bool,
   center: PropTypes.bool,
   textWidth: PropTypes.number,
+};
+CustomText.defaultProps = {
+  type: 'basic',
 };
 
 export default CustomText;
